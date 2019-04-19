@@ -1,28 +1,61 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import PropTypes from 'prop-types';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Header from './components/Header';
+import Main from './components/Main';
+import Footer from './components/Footer';
+
+const themeApp = createMuiTheme({
+  palette: {
+    primary: {
+      light: '#000',
+      main: '#000',
+      dark: '#000',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#fff',
+      main: '#fff',
+      dark: '#fff',
+      contrastText: '#000',
+    },
+  },
+  typography: {
+    fontFamily: [
+      'Roboto',
+      'sans-serif'
+    ].join(','),
+    fontSize: 16
+  },
+});
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      
+    };
+  }
+
   render() {
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <React.Fragment>
+        <CssBaseline />
+        <MuiThemeProvider theme={themeApp}>
+            <Header />
+            <Main />
+            <Footer />
+        </MuiThemeProvider>
+      </React.Fragment>
     );
   }
+}
+
+App.propTypes = {
+  classes: PropTypes.object.isRequired
 }
 
 export default App;
