@@ -3,27 +3,23 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
-    bgFooter: {
-       backgroundColor: "green"
-   } 
+    
   });
 
-class Footer extends Component {
+class Place extends Component {
     render() {
       const { classes } = this.props;
   
       return (
-        <footer className={classes.bgFooter}>
-            <div>
-                Footer
-            </div>
-        </footer>
+        <div>
+            Place
+        </div>
       );
     }
 }
 
-Footer.propTypes = {
+Place.propTypes = {
     classes: PropTypes.object.isRequired
   }
   
-  export default withStyles(styles)(Footer);
+  export default withStyles(styles)(Place);
