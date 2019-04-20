@@ -12,7 +12,10 @@ import { withStyles } from '@material-ui/core/styles';
 const styles = theme => ({
     bgMain: {
        backgroundColor: "lightBlue"
-   } 
+   },
+   containerSliderMenu: {
+     height: "100vh"
+   }
   });
 
 class Main extends Component {
@@ -21,8 +24,10 @@ class Main extends Component {
   
       return (
         <main className={classes.bgMain}>
-            <Slider/>
-            <Menu/>
+            <div className={classes.containerSliderMenu}>
+              <Slider/>
+              <Menu/>
+            </div>
             <Wedding/>
             <Place/>
             <Guests/>

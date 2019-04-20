@@ -10,13 +10,13 @@ const themeApp = createMuiTheme({
   palette: {
     primary: {
       light: '#000',
-      main: '#000',
+      main: '#edc4bd',
       dark: '#000',
       contrastText: '#fff',
     },
     secondary: {
       light: '#fff',
-      main: '#fff',
+      main: '#60a183',
       dark: '#fff',
       contrastText: '#000',
     },

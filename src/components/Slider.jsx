@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
-    
+  sliderContainer:{
+    height: "50vh"
+  }
   });
 
 class Slider extends Component {
@@ -11,7 +13,7 @@ class Slider extends Component {
       const { classes } = this.props;
   
       return (
-        <div>
+        <div className={classes.sliderContainer}>
             Slider
         </div>
       );
