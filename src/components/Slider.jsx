@@ -4,7 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
   sliderContainer:{
-    height: "50vh"
+    height: "50vh",
+    backgroundColor: "grey"
   }
   });
 

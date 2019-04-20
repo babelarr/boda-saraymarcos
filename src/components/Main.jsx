@@ -10,9 +10,7 @@ import Gallery from './Gallery';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
-    bgMain: {
-       backgroundColor: "lightBlue"
-   },
+    
    containerSliderMenu: {
      height: "100vh"
    }

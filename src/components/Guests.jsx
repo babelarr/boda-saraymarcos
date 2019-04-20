@@ -4,10 +4,18 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-
+import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
   guestsContainer:{
+    backgroundColor: "#ffcccc",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "20px"
+  }, 
+  formContainer:{
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -28,7 +36,7 @@ class Guests extends Component {
               <Typography>Aqui va el texto de la boda</Typography>
             </Grid>
             <Grid item>
-              <form>
+              <form className={classes.formContainer}>
                 <TextField
                   id="standard-name"
                   label="Nombre"
@@ -50,6 +58,9 @@ class Guests extends Component {
                   //value={this.state.name}
                   margin="normal"
                 />
+                <Grid item>
+                  <Button variant="contained" color="secondary">ENVIAR</Button>
+                </Grid>
               </form>
             </Grid>
             <Grid item>

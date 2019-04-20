@@ -6,19 +6,31 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
   menuContainer:{
-    height: "50vh"
+    height: "50vh",
   },
   wedding: {
-    backgroundColor: "deeppink"
+    backgroundColor: "white",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   },
   place: {
-    backgroundColor: "red"
+    backgroundColor: "#b37d7d",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   },
   guests: {
-    backgroundColor: "blue"
+    backgroundColor: "#ffcccc",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   },
   gallery: {
-    backgroundColor: "purple"
+    backgroundColor: "#6bb37f",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   },
   });
 

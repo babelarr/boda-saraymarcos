@@ -4,10 +4,15 @@ import { withStyles } from '@material-ui/core/styles';
 
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import { Typography } from "@material-ui/core";
 
 const styles = theme => ({
     bgHeader: {
-       backgroundColor: "pink"
+      backgroundColor: "#ffcccc",
+      display: "flex",
+      justifyContent: "space-around",
+      alignItems: "center",
+      color: "white"
    } 
   });
 
@@ -17,16 +22,19 @@ class Header extends Component {
   
       return (
         <header className={classes.bgHeader}>
-            <BottomNavigation
-                value={value}
-                onChange={this.handleChange}
-                showLabels
-                className={classes.bgHeader}>
-                <BottomNavigationAction label="Nos casamos" />
-                <BottomNavigationAction label="El enlace" />
-                <BottomNavigationAction label="Los invitados" />
-                <BottomNavigationAction label="Galería" />
-            </BottomNavigation>
+          <Typography>
+            Sara y Marcos
+          </Typography>
+          <BottomNavigation
+            value={value}
+            onChange={this.handleChange}
+            showLabels
+            className={classes.bgHeader}>
+            <BottomNavigationAction label="Nos casamos" />
+            <BottomNavigationAction label="Lugar del enlace" />
+            <BottomNavigationAction label="Los invitados" />
+            <BottomNavigationAction label="Galería" />
+          </BottomNavigation>
         </header>
       );
     }

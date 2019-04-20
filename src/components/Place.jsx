@@ -7,22 +7,26 @@ import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
   placeContainer:{
-    backgroundColor: "#60a183",
+    backgroundColor: "#b37d7d",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    textAlign: "center",
+    padding: "20px"
+
   },
   containerLocation: {
-    backgroundColor: "red",
+    backgroundColor: "white",
     display: "flex",
     flexDirection: "row"
   },
   containerMap: {
-    backgroundColor: "blue",
+    backgroundColor: "grey",
   },
   containerButton: {
-    backgroundColor: "yellow",
+    backgroundColor: "white",
+    padding: "20px"
   }
   });
 
@@ -33,14 +37,12 @@ class Place extends Component {
       return (
         <Grid container className={classes.placeContainer}>
           <Grid item>
-            <Grid item>
-              <Typography variant="h3">Lugar del Enlace</Typography>
-            </Grid>
-            <Grid item>
+              <Typography variant="h3">
+                Lugar del Enlace
+              </Typography>
               <Typography>
                 El enlace y posterior celebración tendrá lugar en la finca madrileña El Pendolero a las 13:30
               </Typography>
-            </Grid>
           </Grid>
           <Grid item xs={12} className={classes.containerLocation}>
             <Grid item xs={6} className={classes.containerMap}>
@@ -51,7 +53,7 @@ class Place extends Component {
                 La finca El Pendolero está situada en la carretera del Pardo s/n 28250 Torrelodones, Madrid.
                 Te facilitamos la ubicación y cómo llegar, en el siguiente enlace.
               </Typography>
-              <Button variant="contained" color="primary">Google Maps</Button>
+              <Button variant="contained" color="secondary">Google Maps</Button>
             </Grid>
           </Grid>
         </Grid>

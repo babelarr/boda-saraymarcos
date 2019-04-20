@@ -11,6 +11,12 @@ const styles = theme => ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    padding: "20px"
+  },
+  videoContainer:{
+    width:"300px",
+    height: "300px",
+    backgroundColor: "lightGrey"
   }
   });
 
@@ -26,7 +32,7 @@ class Wedding extends Component {
             <Grid item>
               <Typography>Aqui va el texto de la boda</Typography>
             </Grid>
-            <Grid item>
+            <Grid item className={classes.videoContainer}>
               <media>Video corporativo</media>
             </Grid>
         </Grid>
