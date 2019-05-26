@@ -6,61 +6,47 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
   menuContainer:{
-    height: 400,
-    margin: "auto",
-    
+    height: 400
   },
   wedding: {
-    backgroundColor: theme.palette.primary.main,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center"
+    backgroundColor: theme.palette.primary.main
   },
   place: {
-    backgroundColor: theme.palette.primary.dark,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center"
+    backgroundColor: theme.palette.primary.dark
   },
   guests: {
-    backgroundColor: theme.palette.secondary.main,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center"
+    backgroundColor: theme.palette.secondary.main
   },
   gallery: {
-    backgroundColor: theme.palette.secondary.dark,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center"
+    backgroundColor: theme.palette.secondary.dark
   },
-  });
+});
 
 class Menu extends Component {
-    render() {
-      const { classes } = this.props;
-  
-      return (
-        <Grid container className={classes.menuContainer}>
-            <Grid item xs={6} className={classes.wedding}>
-              <Typography color="textSecondary" variant="h5">Nos casamos</Typography>
-            </Grid>
-            <Grid item xs={6} className={classes.place}>
-              <Typography color="textSecondary" variant="h5">El enlace</Typography>
-            </Grid>
-            <Grid item xs={6} className={classes.guests}>
-              <Typography color="textSecondary" variant="h5">Invitados</Typography>
-            </Grid>
-            <Grid item xs={6} className={classes.gallery}>
-              <Typography color="textSecondary" variant="h5">Galería</Typography>
-            </Grid>
-        </Grid>
-      );
-    }
+  render() {
+    const { classes } = this.props;
+
+    return (
+      <Grid container className={classes.menuContainer}>
+          <Grid container xs={6} className={classes.wedding} justify="center" alignItems="center">
+            <Typography color="textSecondary" variant="h5">Nos casamos</Typography>
+          </Grid>
+          <Grid container xs={6} className={classes.place} justify="center" alignItems="center">
+            <Typography color="textSecondary" variant="h5">El enlace</Typography>
+          </Grid>
+          <Grid container xs={6} className={classes.guests} justify="center" alignItems="center">
+            <Typography color="textSecondary" variant="h5">Invitados</Typography>
+          </Grid>
+          <Grid container xs={6} className={classes.gallery} justify="center" alignItems="center">
+            <Typography color="textSecondary" variant="h5">Galería</Typography>
+          </Grid>
+      </Grid>
+    );
+  }
 }
 
 Menu.propTypes = {
-    classes: PropTypes.object.isRequired
-  }
+  classes: PropTypes.object.isRequired
+}
   
-  export default withStyles(styles)(Menu);
+export default withStyles(styles)(Menu);

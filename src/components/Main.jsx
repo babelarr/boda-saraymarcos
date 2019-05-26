@@ -12,12 +12,10 @@ import { withStyles } from '@material-ui/core/styles';
 declare var $ : any
 
 const styles = theme => ({
-    
-   containerSliderMenu: {
+  containerSliderMenu: {
 
-   }
-  });
-
+  }
+});
 
 class Main extends Component {
     render() {
@@ -43,7 +41,7 @@ class Main extends Component {
 }
 
 Main.propTypes = {
-    classes: PropTypes.object.isRequired
-  }
-  
-  export default withStyles(styles)(Main);
+  classes: PropTypes.object.isRequired
+}
+
+export default withStyles(styles)(Main);

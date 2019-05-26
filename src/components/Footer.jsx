@@ -11,40 +11,40 @@ const styles = theme => ({
     display: "flex",
     justifyContent: "space-between",
     color: "white",
-    padding: "20px"
+    padding: theme.spacing.unit * 2
   },
   media: {
     width: 120,
     height: 24,
-    backgroundSize: "unset",
+    backgroundSize: "unset"
   }
 });
 
 class Footer extends Component {
-    render() {
-      const { classes } = this.props;
-  
-      return (
-        <footer>
-            <Grid container className={classes.footerContainer}>
-            <div className={classes.logoContainer}>
-                <CardMedia
-                  className={classes.media}
-                  image="../images/logo_sara_marcos_w.svg"
-                  title="Fotografia de Sara y Marcos"
-                />
-              </div>
-                <Grid item>
-                  <Typography color="textSecondary">Madrid, 12 de Octubre 2019</Typography>
-                </Grid>
-            </Grid>
-        </footer>
-      );
-    }
+  render() {
+    const { classes } = this.props;
+
+    return (
+      <footer>
+          <Grid container className={classes.footerContainer}>
+          <div className={classes.logoContainer}>
+              <CardMedia
+                className={classes.media}
+                image="../images/logo_sara_marcos_w.svg"
+                title="Fotografia de Sara y Marcos"
+              />
+            </div>
+              <Grid item>
+                <Typography color="textSecondary">Madrid, 12 de Octubre 2019</Typography>
+              </Grid>
+          </Grid>
+      </footer>
+    );
+  }
 }
 
 Footer.propTypes = {
-    classes: PropTypes.object.isRequired
-  }
+  classes: PropTypes.object.isRequired
+}
   
-  export default withStyles(styles)(Footer);
+export default withStyles(styles)(Footer);

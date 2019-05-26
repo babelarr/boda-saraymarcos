@@ -11,59 +11,57 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
 const styles = theme => ({
-    bgHeader: {
-    },
-    logoContainer: {
-      width: "100%",
-      display: "flex",
-      justifyContent: "center"
-    },
-    media: {
-      width: 230,
-      height: 56,
-      backgroundSize: "unset",
-    },
-  });
+  logoContainer: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "center"
+  },
+  media: {
+    width: 230,
+    height: 56,
+    backgroundSize: "unset"
+  }
+});
 
 class Header extends Component {
-    render() {
-      const { classes, value } = this.props;
-  
-      return (
-        <header>
-          <AppBar position="static" className={classes.bgHeader} color="default">
-            <Toolbar>
-              <IconButton edge="start"
-                          color="primary"
-                          aria-label="Menu">
-                <MenuIcon />
-              </IconButton>
-              <div className={classes.logoContainer}>
-                <CardMedia
-                  className={classes.media}
-                  image="../images/logo_sara_marcos.svg"
-                  title="Fotografia de Sara y Marcos"
-                />
-              </div>
-            </Toolbar>
-          </AppBar>
-          {/* <BottomNavigation
-            value={value}
-            onChange={this.handleChange}
-            showLabels
-            className={classes.bgHeader}>
-            <BottomNavigationAction label="Nos casamos" />
-            <BottomNavigationAction label="Lugar del enlace" />
-            <BottomNavigationAction label="Los invitados" />
-            <BottomNavigationAction label="Galería" />
-          </BottomNavigation> */}
-        </header>
-      );
-    }
+  render() {
+    const { classes, value } = this.props;
+
+    return (
+      <header>
+        <AppBar position="static" color="white">
+          <Toolbar>
+            <IconButton edge="start"
+                        color="primary"
+                        aria-label="Menu">
+              <MenuIcon />
+            </IconButton>
+            <div className={classes.logoContainer}>
+              <CardMedia
+                className={classes.media}
+                image="../images/logo_sara_marcos.svg"
+                title="Fotografia de Sara y Marcos"
+              />
+            </div>
+          </Toolbar>
+        </AppBar>
+        {/* <BottomNavigation
+          value={value}
+          onChange={this.handleChange}
+          showLabels
+          className={classes.bgHeader}>
+          <BottomNavigationAction label="Nos casamos" />
+          <BottomNavigationAction label="Lugar del enlace" />
+          <BottomNavigationAction label="Los invitados" />
+          <BottomNavigationAction label="Galería" />
+        </BottomNavigation> */}
+      </header>
+    );
+  }
 }
 
 Header.propTypes = {
-    classes: PropTypes.object.isRequired
-  }
-  
-  export default withStyles(styles)(Header);
+  classes: PropTypes.object.isRequired
+}
+
+export default withStyles(styles)(Header);
