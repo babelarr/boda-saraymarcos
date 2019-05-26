@@ -28,16 +28,16 @@ class Menu extends Component {
 
     return (
       <Grid container className={classes.menuContainer}>
-          <Grid container xs={6} className={classes.wedding} justify="center" alignItems="center">
+          <Grid item xs={6} className={classes.wedding}>
             <Typography color="textSecondary" variant="h5">Nos casamos</Typography>
           </Grid>
-          <Grid container xs={6} className={classes.place} justify="center" alignItems="center">
+          <Grid item xs={6} className={classes.place}>
             <Typography color="textSecondary" variant="h5">El enlace</Typography>
           </Grid>
-          <Grid container xs={6} className={classes.guests} justify="center" alignItems="center">
+          <Grid item xs={6} className={classes.guests}>
             <Typography color="textSecondary" variant="h5">Invitados</Typography>
           </Grid>
-          <Grid container xs={6} className={classes.gallery} justify="center" alignItems="center">
+          <Grid item xs={6} className={classes.gallery}>
             <Typography color="textSecondary" variant="h5">Galería</Typography>
           </Grid>
       </Grid>

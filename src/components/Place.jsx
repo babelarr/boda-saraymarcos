@@ -45,7 +45,7 @@ class Place extends Component {
               El enlace y posterior celebración tendrá lugar en la finca madrileña El Pendolero a las 13:30
             </Typography>
         </Grid>
-        <Grid container xs={12} className={classes.containerLocation} spacing={32}>
+        <Grid container className={classes.containerLocation} spacing={32}>
           <Grid item xs={12} sm={6}>
             <CardMedia
               className={classes.media}

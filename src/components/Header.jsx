@@ -29,7 +29,7 @@ class Header extends Component {
 
     return (
       <header>
-        <AppBar position="static" color="white">
+        <AppBar position="static" color="default">
           <Toolbar>
             <IconButton edge="start"
                         color="primary"
