@@ -7,12 +7,14 @@ import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
   galleryContainer:{
-    backgroundColor: "#6bb37f",
+    backgroundColor: "#bfd3bb",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     padding: "20px",
+    maxWidth: "800px",
+    margin: "auto"
   }
   });
 
@@ -26,7 +28,9 @@ class Gallery extends Component {
               <Typography variant="h3" color="textPrimary">Galería de fotos</Typography>
             </Grid>
             <Grid item>
-              <Typography>En esta sección podrás compartir las fotos que hagas en la boda y así las podremos tener todos</Typography>
+              <Typography>
+                En este espacio podrás subir el dia de la boda las fotos que vayas haciendo y verás las del resto de los invitados.
+              </Typography>
             </Grid>
             <Grid item>
               <Button variant="contained" color="primary">Sube tu foto</Button>

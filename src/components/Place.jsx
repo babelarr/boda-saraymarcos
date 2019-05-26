@@ -13,7 +13,9 @@ const styles = theme => ({
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
-    padding: "20px"
+    padding: "20px",
+    maxWidth: "800px",
+    margin: "auto"
 
   },
   containerLocation: {
@@ -36,7 +38,7 @@ class Place extends Component {
   
       return (
         <Grid container className={classes.placeContainer}>
-          <Grid item>
+          <Grid item x={12}>
               <Typography variant="h3">
                 Lugar del Enlace
               </Typography>
@@ -45,10 +47,10 @@ class Place extends Component {
               </Typography>
           </Grid>
           <Grid item xs={12} className={classes.containerLocation}>
-            <Grid item xs={6} className={classes.containerMap}>
-              Mapa
+            <Grid item xs={12} md={6} className={classes.containerMap}>
+              
             </Grid>
-            <Grid item xs={6} className={classes.containerButton}>
+            <Grid item xs={12} md={6} className={classes.containerButton}>
               <Typography>
                 La finca El Pendolero está situada en la carretera del Pardo s/n 28250 Torrelodones, Madrid.
                 Te facilitamos la ubicación y cómo llegar, en el siguiente enlace.

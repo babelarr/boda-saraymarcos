@@ -4,16 +4,25 @@ import { withStyles } from '@material-ui/core/styles';
 
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import { Typography } from "@material-ui/core";
+import CardMedia from '@material-ui/core/CardMedia';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 
 const styles = theme => ({
     bgHeader: {
-      backgroundColor: "#ffcccc",
+    },
+    logoContainer: {
+      width: "100%",
       display: "flex",
-      justifyContent: "space-around",
-      alignItems: "center",
-      color: "white"
-   } 
+      justifyContent: "center"
+    },
+    media: {
+      width: 230,
+      height: 56,
+      backgroundSize: "unset",
+    },
   });
 
 class Header extends Component {
@@ -21,11 +30,24 @@ class Header extends Component {
       const { classes, value } = this.props;
   
       return (
-        <header className={classes.bgHeader}>
-          <Typography>
-            Sara y Marcos
-          </Typography>
-          <BottomNavigation
+        <header>
+          <AppBar position="static" className={classes.bgHeader} color="default">
+            <Toolbar>
+              <IconButton edge="start"
+                          color="secondary"
+                          aria-label="Menu">
+                <MenuIcon />
+              </IconButton>
+              <div className={classes.logoContainer}>
+                <CardMedia
+                  className={classes.media}
+                  image="../images/logo_sara_marcos.svg"
+                  title="Fotografia de Sara y Marcos"
+                />
+              </div>
+            </Toolbar>
+          </AppBar>
+          {/* <BottomNavigation
             value={value}
             onChange={this.handleChange}
             showLabels
@@ -34,7 +56,7 @@ class Header extends Component {
             <BottomNavigationAction label="Lugar del enlace" />
             <BottomNavigationAction label="Los invitados" />
             <BottomNavigationAction label="Galería" />
-          </BottomNavigation>
+          </BottomNavigation> */}
         </header>
       );
     }

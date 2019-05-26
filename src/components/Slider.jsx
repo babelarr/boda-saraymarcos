@@ -5,7 +5,10 @@ import { withStyles } from '@material-ui/core/styles';
 const styles = theme => ({
   sliderContainer:{
     height: "50vh",
-    backgroundColor: "grey"
+    backgroundImage: "url('../images/foto-test.png')",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundPosition: "center center"
   }
   });
 
@@ -15,7 +18,7 @@ class Slider extends Component {
   
       return (
         <div className={classes.sliderContainer}>
-            Slider
+
         </div>
       );
     }

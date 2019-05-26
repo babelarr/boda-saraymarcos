@@ -9,21 +9,31 @@ import Footer from './components/Footer';
 const themeApp = createMuiTheme({
   palette: {
     primary: {
-      main: '#b37d7d',
+      light: '#dddddd',
+      main: '#ff0000',
+      dark: '#cc0000',
       contrastText: '#fff',
     },
     secondary: {
-      main: '#6bb37f',
+      light: '#dddddd',
+      main: '#BACDB7',
+      dark: '#00cc00',
       contrastText: '#fff',
     },
+    text:{ 
+      primary: '#cc0000',
+      secondary: '#00ff00',
+      disabled: '#cccccc',
+      hint: 'dddddd'
+    }
   },
   typography: {
+    useNextVariants: true,
     fontFamily: [
-      'Questrial',
+      'Josefin Sans',
       'sans-serif'
-    ].join(','),
-    fontSize: 16,
-    textPrimary: "red"
+    ],
+    fontSize: 16
   },
 });
 

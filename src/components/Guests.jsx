@@ -8,12 +8,14 @@ import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
   guestsContainer:{
-    backgroundColor: "#ffcccc",
+    backgroundColor: "#E9AFA3",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    padding: "20px"
+    padding: "20px",
+    maxWidth: "800px",
+    margin: "auto"
   }, 
   formContainer:{
     display: "flex",

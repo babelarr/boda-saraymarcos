@@ -7,27 +7,29 @@ import Typography from '@material-ui/core/Typography';
 const styles = theme => ({
   menuContainer:{
     height: "50vh",
+    maxWidth: "800px",
+    margin: "auto"
   },
   wedding: {
-    backgroundColor: "white",
+    backgroundColor: "#ABC6E1",
     display: "flex",
     justifyContent: "center",
     alignItems: "center"
   },
   place: {
-    backgroundColor: "#b37d7d",
+    backgroundColor: "#8C7776",
     display: "flex",
     justifyContent: "center",
     alignItems: "center"
   },
   guests: {
-    backgroundColor: "#ffcccc",
+    backgroundColor: "#FA8B84",
     display: "flex",
     justifyContent: "center",
     alignItems: "center"
   },
   gallery: {
-    backgroundColor: "#6bb37f",
+    backgroundColor: "#bfd3bb",
     display: "flex",
     justifyContent: "center",
     alignItems: "center"

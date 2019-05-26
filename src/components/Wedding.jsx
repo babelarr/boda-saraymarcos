@@ -11,12 +11,17 @@ const styles = theme => ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    padding: "20px"
+    padding: "20px",
+    maxWidth: "800px",
+    margin: "auto"
   },
   videoContainer:{
-    width:"300px",
+    width:"600px",
     height: "300px",
     backgroundColor: "lightGrey"
+  },
+  text:{
+    textAlign: "center"
   }
   });
 
@@ -27,13 +32,15 @@ class Wedding extends Component {
       return (
         <Grid container className={classes.weddingContainer}>
             <Grid item>
-              <Typography variant="h3">Nos casamos</Typography>
+              <Typography variant="h3" color="#ffcc00">Nos casamos</Typography>
             </Grid>
-            <Grid item>
-              <Typography>Aqui va el texto de la boda</Typography>
+            <Grid item className={classes.text}>
+              <Typography>
+                El próximo 12 de Octubre de 2019 no hagas planes… ¡Nos casamos¡ y queremos que estés en este día tan especial para nosotros.
+              </Typography>
             </Grid>
-            <Grid item className={classes.videoContainer}>
-              <media>Video corporativo</media>
+            <Grid item xs={12} className={classes.videoContainer}>
+              <media></media>
             </Grid>
         </Grid>
       );
