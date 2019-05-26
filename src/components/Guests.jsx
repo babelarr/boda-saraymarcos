@@ -8,13 +8,12 @@ import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
   guestsContainer:{
-    backgroundColor: "#E9AFA3",
+    backgroundColor: theme.palette.secondary.main,
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     padding: "20px",
-    maxWidth: "800px",
     margin: "auto"
   }, 
   formContainer:{
@@ -22,6 +21,12 @@ const styles = theme => ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+  },
+  countContainer:{
+    textAlign: "center",
+    border: "1px dotted white",
+    margin: 10,
+    padding: 20
   }
   });
 
@@ -32,10 +37,10 @@ class Guests extends Component {
       return (
         <Grid container className={classes.guestsContainer}>
             <Grid item>
-              <Typography variant="h3">Los Invitados</Typography>
+              <Typography variant="h4" color="textSecondary">Los Invitados</Typography>
             </Grid>
             <Grid item>
-              <Typography>Aqui va el texto de la boda</Typography>
+              <Typography color="textSecondary">Aqui va el texto de la boda</Typography>
             </Grid>
             <Grid item>
               <form className={classes.formContainer}>
@@ -61,16 +66,18 @@ class Guests extends Component {
                   margin="normal"
                 />
                 <Grid item>
-                  <Button variant="contained" color="secondary">ENVIAR</Button>
+                  <Button variant="contained" color="primary">ENVIAR</Button>
                 </Grid>
               </form>
             </Grid>
-            <Grid item>
-              <Typography>Aqui va el texto de la boda</Typography>
-            </Grid>
-            <Grid item>
-              <Typography>Número de cuenta ESXX XXXX XX XXXXXXX</Typography>
-            </Grid>
+            <div className={classes.countContainer}>
+              <Grid item>
+                <Typography color="textSecondary">Aqui va el texto de la boda</Typography>
+              </Grid>
+              <Grid item>
+                <Typography color="textSecondary">Número de cuenta ESXX XXXX XX XXXXXXX</Typography>
+              </Grid>
+            </div>
             <Grid item></Grid>
         </Grid>
       );

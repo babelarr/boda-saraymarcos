@@ -6,30 +6,30 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
   menuContainer:{
-    height: "50vh",
-    maxWidth: "800px",
-    margin: "auto"
+    height: 400,
+    margin: "auto",
+    
   },
   wedding: {
-    backgroundColor: "#ABC6E1",
+    backgroundColor: theme.palette.primary.main,
     display: "flex",
     justifyContent: "center",
     alignItems: "center"
   },
   place: {
-    backgroundColor: "#8C7776",
+    backgroundColor: theme.palette.primary.dark,
     display: "flex",
     justifyContent: "center",
     alignItems: "center"
   },
   guests: {
-    backgroundColor: "#FA8B84",
+    backgroundColor: theme.palette.secondary.main,
     display: "flex",
     justifyContent: "center",
     alignItems: "center"
   },
   gallery: {
-    backgroundColor: "#bfd3bb",
+    backgroundColor: theme.palette.secondary.dark,
     display: "flex",
     justifyContent: "center",
     alignItems: "center"
@@ -43,16 +43,16 @@ class Menu extends Component {
       return (
         <Grid container className={classes.menuContainer}>
             <Grid item xs={6} className={classes.wedding}>
-              <Typography>Nos casamos</Typography>
+              <Typography color="textSecondary" variant="h5">Nos casamos</Typography>
             </Grid>
             <Grid item xs={6} className={classes.place}>
-              <Typography>El enlace</Typography>
+              <Typography color="textSecondary" variant="h5">El enlace</Typography>
             </Grid>
             <Grid item xs={6} className={classes.guests}>
-              <Typography>Invitados</Typography>
+              <Typography color="textSecondary" variant="h5">Invitados</Typography>
             </Grid>
             <Grid item xs={6} className={classes.gallery}>
-              <Typography>Galería</Typography>
+              <Typography color="textSecondary" variant="h5">Galería</Typography>
             </Grid>
         </Grid>
       );

@@ -14,7 +14,7 @@ declare var $ : any
 const styles = theme => ({
     
    containerSliderMenu: {
-     height: "100vh"
+
    }
   });
 

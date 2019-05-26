@@ -2,17 +2,23 @@ import React, {Component} from "react";
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
-    footerContainer: {
-      backgroundColor: "#ffcccc",
-      display: "flex",
-      justifyContent: "space-between",
-      color: "white",
-      padding: "20px"
-   } 
-  });
+  footerContainer: {
+    backgroundColor: theme.palette.primary.main,
+    display: "flex",
+    justifyContent: "space-between",
+    color: "white",
+    padding: "20px"
+  },
+  media: {
+    width: 120,
+    height: 24,
+    backgroundSize: "unset",
+  }
+});
 
 class Footer extends Component {
     render() {
@@ -21,11 +27,15 @@ class Footer extends Component {
       return (
         <footer>
             <Grid container className={classes.footerContainer}>
+            <div className={classes.logoContainer}>
+                <CardMedia
+                  className={classes.media}
+                  image="../images/logo_sara_marcos_w.svg"
+                  title="Fotografia de Sara y Marcos"
+                />
+              </div>
                 <Grid item>
-                  Sara y Marcos
-                </Grid>
-                <Grid item>
-                  <Typography>Madrid, 12 de Octubre 2019</Typography>
+                  <Typography color="textSecondary">Madrid, 12 de Octubre 2019</Typography>
                 </Grid>
             </Grid>
         </footer>

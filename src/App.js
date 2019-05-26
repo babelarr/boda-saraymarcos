@@ -9,22 +9,20 @@ import Footer from './components/Footer';
 const themeApp = createMuiTheme({
   palette: {
     primary: {
-      light: '#dddddd',
-      main: '#ff0000',
-      dark: '#cc0000',
+      light: '#ceddcc',
+      main: '#bacdb7',
+      dark: '#94bf96',
       contrastText: '#fff',
     },
     secondary: {
-      light: '#dddddd',
-      main: '#BACDB7',
-      dark: '#00cc00',
+      light: '#ddced0',
+      main: '#d7b9bc',
+      dark: '#d17878',
       contrastText: '#fff',
     },
     text:{ 
-      primary: '#333',
-      secondary: '#00ff00',
-      disabled: '#cccccc',
-      hint: 'dddddd'
+      primary: '#999',
+      secondary: '#fff',
     }
   },
   typography: {

@@ -6,25 +6,37 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
-  placeContainer:{
-    backgroundColor: "#b37d7d",
+  placeContainer: {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
-    padding: "20px",
-    maxWidth: "800px",
-    margin: "auto"
-
+    margin: "auto",
+  },
+  placeBg: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    height: 250,
+    padding: 20,
+    backgroundImage: "url('../images/el-pendolero.png')",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundPosition: "center center"
   },
   containerLocation: {
     backgroundColor: "white",
     display: "flex",
-    flexDirection: "row"
+    flexDirection: "row",
+    padding: 20
   },
   containerMap: {
-    backgroundColor: "grey",
+    backgroundImage: "url('../images/map.png')",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundPosition: "center center"
   },
   containerButton: {
     backgroundColor: "white",
@@ -38,11 +50,11 @@ class Place extends Component {
   
       return (
         <Grid container className={classes.placeContainer}>
-          <Grid item x={12}>
-              <Typography variant="h3">
+          <Grid item x={12} className={classes.placeBg}>
+              <Typography variant="h4" color="textSecondary">
                 Lugar del Enlace
               </Typography>
-              <Typography>
+              <Typography color="textSecondary">
                 El enlace y posterior celebración tendrá lugar en la finca madrileña El Pendolero a las 13:30
               </Typography>
           </Grid>
@@ -55,7 +67,7 @@ class Place extends Component {
                 La finca El Pendolero está situada en la carretera del Pardo s/n 28250 Torrelodones, Madrid.
                 Te facilitamos la ubicación y cómo llegar, en el siguiente enlace.
               </Typography>
-              <Button variant="contained" color="secondary">Google Maps</Button>
+              <Button variant="contained" color="primary">Google Maps</Button>
             </Grid>
           </Grid>
         </Grid>

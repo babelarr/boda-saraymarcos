@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
   sliderContainer:{
-    height: "50vh",
+    height: 500,
     backgroundImage: "url('../images/foto-test.png')",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",

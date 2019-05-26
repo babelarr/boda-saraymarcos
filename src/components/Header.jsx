@@ -34,7 +34,7 @@ class Header extends Component {
           <AppBar position="static" className={classes.bgHeader} color="default">
             <Toolbar>
               <IconButton edge="start"
-                          color="secondary"
+                          color="primary"
                           aria-label="Menu">
                 <MenuIcon />
               </IconButton>
