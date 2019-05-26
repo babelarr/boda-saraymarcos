@@ -9,6 +9,8 @@ import Gallery from './Gallery';
 
 import { withStyles } from '@material-ui/core/styles';
 
+declare var $ : any
+
 const styles = theme => ({
     
    containerSliderMenu: {
@@ -16,13 +18,18 @@ const styles = theme => ({
    }
   });
 
+
 class Main extends Component {
     render() {
       const { classes } = this.props;
-  
+      $(document).ready(function () {
+        var date = new Date(2019, 9, 12, 13)
+        $('#defaultCountdown').countdown({until: date})
+      })
       return (
         <main className={classes.bgMain}>
             <div className={classes.containerSliderMenu}>
+              <div id='defaultCountdown' />
               <Slider/>
               <Menu/>
             </div>
