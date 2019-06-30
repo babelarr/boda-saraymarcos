@@ -73,7 +73,7 @@ class Guests extends Component {
             <Typography color="textSecondary">Aqui va el texto de la boda</Typography>
           </Grid>
           <Grid item>
-            <Typography color="textSecondary">Número de cuenta ESXX XXXX XX XXXXXXX</Typography>
+            <Typography color="textSecondary">Número de cuenta ES98 1465 0100 91 1715510099</Typography>
           </Grid>
         </Grid>
       </Grid>
