@@ -6,61 +6,47 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
   menuContainer:{
-    height: "50vh",
-    maxWidth: "800px",
-    margin: "auto"
+    height: 400
   },
   wedding: {
-    backgroundColor: "#ABC6E1",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center"
+    backgroundColor: theme.palette.primary.main
   },
   place: {
-    backgroundColor: "#8C7776",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center"
+    backgroundColor: theme.palette.primary.dark
   },
   guests: {
-    backgroundColor: "#FA8B84",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center"
+    backgroundColor: theme.palette.secondary.main
   },
   gallery: {
-    backgroundColor: "#bfd3bb",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center"
+    backgroundColor: theme.palette.secondary.dark
   },
-  });
+});
 
 class Menu extends Component {
-    render() {
-      const { classes } = this.props;
-  
-      return (
-        <Grid container className={classes.menuContainer}>
-            <Grid item xs={6} className={classes.wedding}>
-              <Typography>Nos casamos</Typography>
-            </Grid>
-            <Grid item xs={6} className={classes.place}>
-              <Typography>El enlace</Typography>
-            </Grid>
-            <Grid item xs={6} className={classes.guests}>
-              <Typography>Invitados</Typography>
-            </Grid>
-            <Grid item xs={6} className={classes.gallery}>
-              <Typography>Galería</Typography>
-            </Grid>
-        </Grid>
-      );
-    }
+  render() {
+    const { classes } = this.props;
+
+    return (
+      <Grid container className={classes.menuContainer}>
+          <Grid item xs={6} className={classes.wedding}>
+            <Typography color="textSecondary" variant="h5">Nos casamos</Typography>
+          </Grid>
+          <Grid item xs={6} className={classes.place}>
+            <Typography color="textSecondary" variant="h5">El enlace</Typography>
+          </Grid>
+          <Grid item xs={6} className={classes.guests}>
+            <Typography color="textSecondary" variant="h5">Invitados</Typography>
+          </Grid>
+          <Grid item xs={6} className={classes.gallery}>
+            <Typography color="textSecondary" variant="h5">Galería</Typography>
+          </Grid>
+      </Grid>
+    );
+  }
 }
 
 Menu.propTypes = {
-    classes: PropTypes.object.isRequired
-  }
+  classes: PropTypes.object.isRequired
+}
   
-  export default withStyles(styles)(Menu);
+export default withStyles(styles)(Menu);

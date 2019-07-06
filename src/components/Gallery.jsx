@@ -3,45 +3,54 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import FileUpload from './FileUpload';
 
 const styles = theme => ({
-  galleryContainer:{
-    backgroundColor: "#bfd3bb",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: "20px",
-    maxWidth: "800px",
-    margin: "auto"
+  galleryContainer: {
+    backgroundColor: theme.palette.primary.dark,
+    padding: theme.spacing.unit * 5
   }
-  });
+});
 
 class Gallery extends Component {
-    render() {
-      const { classes } = this.props;
-  
-      return (
-        <Grid container className={classes.galleryContainer}>
-            <Grid item>
-              <Typography variant="h3" color="textPrimary">Galería de fotos</Typography>
-            </Grid>
-            <Grid item>
-              <Typography>
-                En este espacio podrás subir el dia de la boda las fotos que vayas haciendo y verás las del resto de los invitados.
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Button variant="contained" color="primary">Sube tu foto</Button>
-            </Grid>
-        </Grid>
-      );
-    }
+  render() {
+    const { classes } = this.props;
+
+    return (
+      <Grid container justify="center" className={classes.galleryContainer}>
+          <Grid item>
+            <Typography variant="h4" color="textSecondary">Galería de fotos</Typography>
+          </Grid>
+          <Grid item>
+            <Typography color="textSecondary" align="center">
+              En este espacio podrás subir el dia de la boda las fotos que vayas haciendo y verás las del resto de los invitados.
+            </Typography>
+          </Grid>
+          <Grid item>
+            <FileUpload handleUpload={this.props.handleUpload} uploadValue={this.props.uploadValue} />
+          </Grid>
+          {
+              this.props.pictures.map(picture => (
+                <Grid item key={picture.key}>
+                    <figure>
+                      <img
+                        src={picture.image}
+                        data-caption={`Imagen compartida por ${picture.displayName}`}
+                        alt='Ampliar/Reducir imagen' />
+                    </figure>
+                    <div>
+                      {picture.displayName}
+                    </div>
+                </Grid>
+              )).reverse()
+            }
+      </Grid>
+    );
+  }
 }
 
 Gallery.propTypes = {
-    classes: PropTypes.object.isRequired
-  }
-  
-  export default withStyles(styles)(Gallery);
+  classes: PropTypes.object.isRequired
+}
+
+export default withStyles(styles)(Gallery);

@@ -4,28 +4,26 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
   sliderContainer:{
-    height: "50vh",
+    height: 500,
     backgroundImage: "url('../images/foto-test.png')",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center center"
   }
-  });
+});
 
 class Slider extends Component {
-    render() {
-      const { classes } = this.props;
-  
-      return (
-        <div className={classes.sliderContainer}>
+  render() {
+    const { classes } = this.props;
 
-        </div>
-      );
-    }
+    return (
+      <div className={classes.sliderContainer} />
+    );
+  }
 }
 
 Slider.propTypes = {
-    classes: PropTypes.object.isRequired
-  }
-  
-  export default withStyles(styles)(Slider);
+  classes: PropTypes.object.isRequired
+}
+
+export default withStyles(styles)(Slider);

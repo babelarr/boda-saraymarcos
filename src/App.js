@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Header from './components/Header';
@@ -8,23 +7,28 @@ import Footer from './components/Footer';
 
 const themeApp = createMuiTheme({
   palette: {
+    default: {
+      light: '#fff',
+      main: '#fff',
+      dark: '#fff',
+      contrastText: '#fff',
+    },
     primary: {
-      light: '#dddddd',
-      main: '#ff0000',
-      dark: '#cc0000',
+      light: '#ceddcc',
+      main: '#bacdb7',
+      dark: '#94bf96',
       contrastText: '#fff',
     },
     secondary: {
-      light: '#dddddd',
-      main: '#BACDB7',
-      dark: '#00cc00',
+      light: '#ddced0',
+      main: '#d7b9bc',
+      dark: '#d17878',
       contrastText: '#fff',
     },
     text:{ 
-      primary: '#333',
-      secondary: '#00ff00',
-      disabled: '#cccccc',
-      hint: 'dddddd'
+      primary: '#999',
+      secondary: '#fff',
+      default: '#fff'
     }
   },
   typography: {
@@ -46,7 +50,6 @@ class App extends Component {
   }
 
   render() {
-
     return (
       <React.Fragment>
         <CssBaseline />
@@ -58,10 +61,6 @@ class App extends Component {
       </React.Fragment>
     );
   }
-}
-
-App.propTypes = {
-  classes: PropTypes.object.isRequired
 }
 
 export default App;
