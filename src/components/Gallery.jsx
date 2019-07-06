@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import FileUpload from './FileUpload';
 
 const styles = theme => ({
   galleryContainer: {
@@ -27,8 +27,23 @@ class Gallery extends Component {
             </Typography>
           </Grid>
           <Grid item>
-            <Button variant="contained" color="secondary">Sube tu foto</Button>
+            <FileUpload handleUpload={this.props.handleUpload} uploadValue={this.props.uploadValue} />
           </Grid>
+          {
+              this.props.pictures.map(picture => (
+                <Grid item key={picture.key}>
+                    <figure>
+                      <img
+                        src={picture.image}
+                        data-caption={`Imagen compartida por ${picture.displayName}`}
+                        alt='Ampliar/Reducir imagen' />
+                    </figure>
+                    <div>
+                      {picture.displayName}
+                    </div>
+                </Grid>
+              )).reverse()
+            }
       </Grid>
     );
   }

@@ -7,9 +7,12 @@ import Place from './Place';
 import Guests from './Guests';
 import Gallery from './Gallery';
 
+import firebase from 'firebase';
+import uuid from 'uuid';
+
 import { withStyles } from '@material-ui/core/styles';
 
-declare var $ : any
+declare var $ : any;
 
 const styles = theme => ({
   containerSliderMenu: {
@@ -18,26 +21,88 @@ const styles = theme => ({
 });
 
 class Main extends Component {
-    render() {
-      const { classes } = this.props;
-      $(document).ready(function () {
-        var date = new Date(2019, 9, 12, 13)
-        $('#defaultCountdown').countdown({until: date})
-      })
-      return (
-        <main className={classes.bgMain}>
-            <div className={classes.containerSliderMenu}>
-              <div id='defaultCountdown' />
-              <Slider/>
-              <Menu/>
-            </div>
-            <Wedding/>
-            <Place/>
-            <Guests/>
-            <Gallery/>
-        </main>
-      );
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      pictures: [],
+      uploadValue: 0
     }
+
+    this.handleUpload = this.handleUpload.bind(this);
+  }
+
+  componentWillMount () {
+    firebase.database().ref('pictures').on('child_added', snapshot => {
+      this.setState({
+        pictures: this.state.pictures.concat(snapshot.val())
+      });
+    });
+  }
+
+  handleUpload (event) {
+    const file = event.target.files[0];
+    const storageRef = firebase.storage().ref(`fotos/${file.name}`);
+    const task = storageRef.put(file);
+
+    // Listener que se ocupa del estado de la carga del fichero
+    task.on('state_changed', snapshot => {
+      // Calculamos el porcentaje de tamaño transferido y actualizamos
+      // el estado del componente con el valor
+      let percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+      this.setState({
+        uploadValue: percentage
+      });
+    }, error => {
+      // Ocurre un error
+      console.error(error.message);
+    }, () => {
+      this.setState({
+        uploadValue: 100
+      });
+      // Subida completada
+      // Obtenemos la URL del fichero almacenado en Firebase storage
+      // Obtenemos la referencia a nuestra base de datos 'pictures'
+      // Creamos un nuevo registro en ella
+      // Guardamos la URL del enlace en la DB
+
+      task.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+        const record = {
+          key: uuid.v4(),
+          displayName: 'Foto compartida',
+          image: downloadURL
+        };
+
+        const dbRef = firebase.database().ref('pictures');
+        const newPicture = dbRef.push();
+        newPicture.set(record);
+      });
+
+    });
+  }
+
+  render() {
+    const { classes } = this.props;
+
+    $(document).ready(function () {
+      var date = new Date(2019, 9, 12, 13)
+      $('#defaultCountdown').countdown({until: date});
+    });
+
+    return (
+      <main className={classes.bgMain}>
+          <div className={classes.containerSliderMenu}>
+            <div id='defaultCountdown' />
+            <Slider/>
+            <Menu/>
+          </div>
+          <Wedding/>
+          <Place/>
+          <Guests/>
+          <Gallery handleUpload={this.handleUpload} uploadValue={this.state.uploadValue} pictures={this.state.pictures}/>
+      </main>
+    );
+  }
 }
 
 Main.propTypes = {
