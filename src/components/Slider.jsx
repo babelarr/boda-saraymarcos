@@ -1,29 +1,52 @@
 import React, {Component} from "react";
+import Slider from "react-slick";
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import CardMedia from '@material-ui/core/CardMedia';
+
 
 const styles = theme => ({
-  sliderContainer:{
+  media: {
     height: 500,
-    backgroundImage: "url('../images/foto-test.png')",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    backgroundPosition: "center center"
+    objectFit: "cover"
   }
 });
 
-class Slider extends Component {
+class AutoPlay extends Component {
   render() {
     const { classes } = this.props;
+    const settings = {
+      dots: false,
+      infinite: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      speed: 1000,
+      autoplaySpeed: 5000,
+      cssEase: "linear"
+    };
 
     return (
-      <div className={classes.sliderContainer} />
+      <Slider {...settings}>
+        <CardMedia
+          className={classes.media}
+          image= "../images/IMG_9243.png" 
+        />
+        <CardMedia
+          className={classes.media}
+          image= "../images/IMG_9242.png"
+        />
+        <CardMedia
+          className={classes.media}
+          image= "../images/IMG_9241.png" 
+        />
+      </Slider>
     );
   }
 }
 
-Slider.propTypes = {
+AutoPlay.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(Slider);
+export default withStyles(styles)(AutoPlay);

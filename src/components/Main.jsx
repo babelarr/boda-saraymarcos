@@ -17,9 +17,6 @@ import { withStyles } from '@material-ui/core/styles';
 declare var $ : any;
 
 const styles = theme => ({
-  containerSliderMenu: {
-
-  }
 });
 
 class Main extends Component {
@@ -93,16 +90,13 @@ class Main extends Component {
     });
 
     return (
-      <main className={classes.bgMain}>
-          <div className={classes.containerSliderMenu}>
-            <div id='defaultCountdown' />
-            <Slider/>
-            <Menu/>
-          </div>
-          <Wedding/>
-          <Place/>
-          <Guests/>
-          <Gallery loading={this.state.loading} handleUpload={this.handleUpload} uploadValue={this.state.uploadValue} pictures={this.state.pictures}/>
+      <main>
+        <Slider/>
+        <Menu/>
+        <Wedding/>
+        <Place/>
+        <Guests/>
+        <Gallery loading={this.state.loading} handleUpload={this.handleUpload} uploadValue={this.state.uploadValue} pictures={this.state.pictures}/>
       </main>
     );
   }
