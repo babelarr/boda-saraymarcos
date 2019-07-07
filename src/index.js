@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 
-import firebase from 'firebase'
+import * as firebase from 'firebase/app';
+
+import 'firebase/database';
+import 'firebase/storage';
 
 firebase.initializeApp({
   apiKey: "AIzaSyDOuHU0FUakUw08cvY_xoW1aojpgd5WYhQ",
