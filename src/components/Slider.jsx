@@ -16,6 +16,7 @@ class AutoPlay extends Component {
     const { classes } = this.props;
     const settings = {
       dots: false,
+      arrows: false,
       infinite: true,
       slidesToShow: 1,
       slidesToScroll: 1,

@@ -45,22 +45,24 @@ class Place extends Component {
               El enlace y posterior celebración tendrá lugar en la finca madrileña El Pendolero a las 13:30
             </Typography>
         </Grid>
-        <Grid container className={classes.containerLocation} spacing={32}>
-          <Grid item xs={12} sm={6}>
-            <CardMedia
-              className={classes.media}
-              image="../images/map.png"
-              title="Plano de localizacion google maps"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Typography>
-              La finca El Pendolero está situada en la carretera del Pardo s/n 28250 Torrelodones, Madrid.
-              Te facilitamos la ubicación y cómo llegar, en el siguiente enlace.
-            </Typography>
-            <a href="https://www.google.com/maps/place/Finca+El+Pendolero/@40.591404,-3.8868847,17z/data=!3m1!4b1!4m5!3m4!1s0xd41781c686d4479:0xa3e5d1c54d37165a!8m2!3d40.591404!4d-3.884696" target="_blank" rel="noopener noreferrer" className={classes.link}>
-              <Button variant="contained" color="primary">Google Maps</Button>
-            </a>
+        <Grid item x={12} className={classes.containerLocation}>
+          <Grid container spacing={32}>
+            <Grid item xs={12} sm={6}>
+              <CardMedia
+                className={classes.media}
+                image="../images/map.png"
+                title="Plano de localizacion google maps"
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Typography>
+                La finca El Pendolero está situada en la carretera del Pardo s/n 28250 Torrelodones, Madrid.
+                Te facilitamos la ubicación y cómo llegar, en el siguiente enlace.
+              </Typography>
+              <a href="https://www.google.com/maps/place/Finca+El+Pendolero/@40.591404,-3.8868847,17z/data=!3m1!4b1!4m5!3m4!1s0xd41781c686d4479:0xa3e5d1c54d37165a!8m2!3d40.591404!4d-3.884696" target="_blank" rel="noopener noreferrer" className={classes.link}>
+                <Button variant="contained" color="primary">Google Maps</Button>
+              </a>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
