@@ -31,7 +31,7 @@ class Gallery extends Component {
     const { classes, loading, handleUpload, uploadValue, pictures } = this.props;
 
     return (
-      <Grid container direction="column" justify="center" alignItems="center" className={classes.galleryContainer}>
+      <Grid id='gallery' container direction="column" justify="center" alignItems="center" className={classes.galleryContainer}>
           <Grid item xs={12}>
             <Typography variant="h4" color="textSecondary" align="center">Galería de fotos</Typography>
           </Grid>
@@ -65,7 +65,7 @@ class Gallery extends Component {
                       title={picture.displayName}
                     />
                   </Grid>
-              
+
                 )).reverse()
               }
             </Grid>

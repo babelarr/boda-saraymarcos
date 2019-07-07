@@ -15,7 +15,7 @@ class Wedding extends Component {
     const { classes } = this.props;
 
     return (
-      <Grid container direction="column" justify="center" className={classes.weddingContainer}>
+      <Grid id='wedding' container direction="column" justify="center" className={classes.weddingContainer}>
         <Grid item>
           <Typography variant="h4" color="primary" align="center">Nos casamos</Typography>
         </Grid>
@@ -32,5 +32,5 @@ class Wedding extends Component {
 Wedding.propTypes = {
   classes: PropTypes.object.isRequired
 }
-  
+
 export default withStyles(styles)(Wedding);

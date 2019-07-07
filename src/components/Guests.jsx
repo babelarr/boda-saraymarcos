@@ -16,7 +16,9 @@ const styles = theme => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginBottom: theme.spacing.unit * 4,
+    width: '100%'
   },
   countContainer:{
     border: '1px dotted white',
@@ -32,18 +34,18 @@ class Guests extends Component {
     let form;
 
     return (
-      <Grid container direction='column' justify='center' className={classes.guestsContainer}>
-        <Grid item>
+      <Grid id='guests' container justify='center' alignItems="center" className={classes.guestsContainer}>
+        <Grid item xs={12}>
           <Typography variant='h4' color='textSecondary' align='center'>Los Invitados</Typography>
         </Grid>
 
-        <Grid item>
+        <Grid item xs={12}>
           <Typography color='textSecondary' align='center'>
             Aqui va el texto de la boda
           </Typography>
         </Grid>
 
-        <Grid item xs={12} sm={6} md={7}>
+        <Grid item xs={12}>
           <form id='contactForm' autoComplete='off' className={classes.formContainer}
             onSubmit={(event) => {
               event.preventDefault();

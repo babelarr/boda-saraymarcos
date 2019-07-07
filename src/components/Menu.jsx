@@ -8,18 +8,29 @@ const styles = theme => ({
   menuContainer:{
     height: 400
   },
+  itemContainer:{
+    height: '100%'
+  },
   wedding: {
+    width: '100%',
     backgroundColor: theme.palette.primary.main
   },
   place: {
+    width: '100%',
     backgroundColor: theme.palette.primary.dark
   },
   guests: {
+    width: '100%',
     backgroundColor: theme.palette.secondary.main
   },
   gallery: {
+    width: '100%',
     backgroundColor: theme.palette.secondary.dark
   },
+  links: {
+    color: "unset",
+    textDecoration: "unset"
+  }
 });
 
 class Menu extends Component {
@@ -27,18 +38,34 @@ class Menu extends Component {
     const { classes } = this.props;
 
     return (
-      <Grid container className={classes.menuContainer}>
-          <Grid item xs={6} className={classes.wedding}>
-            <Typography color="textSecondary" variant="h5">Nos casamos</Typography>
+      <Grid container className={classes.menuContainer} direction="column" justify="center" alignItems="center">
+          <Grid item xs={6} alignItems='center' className={classes.wedding}>
+            <Grid container className={classes.itemContainer} justify="center" alignItems="center">
+              <Grid item>
+                <Typography color="textSecondary" variant="h5"><a href="#wedding" className={classes.links}>Nos casamos</a></Typography>
+              </Grid>
+            </Grid>
           </Grid>
           <Grid item xs={6} className={classes.place}>
-            <Typography color="textSecondary" variant="h5">El enlace</Typography>
+            <Grid container className={classes.itemContainer} justify="center" alignItems="center">
+              <Grid item>
+                <Typography color="textSecondary" variant="h5"><a href="#place" className={classes.links}>El enlace</a></Typography>
+              </Grid>
+            </Grid>
           </Grid>
           <Grid item xs={6} className={classes.guests}>
-            <Typography color="textSecondary" variant="h5">Invitados</Typography>
+            <Grid container className={classes.itemContainer} justify="center" alignItems="center">
+              <Grid item>
+                <Typography color="textSecondary" variant="h5"><a href="#guests" className={classes.links}>Invitados</a></Typography>
+              </Grid>
+            </Grid>
           </Grid>
           <Grid item xs={6} className={classes.gallery}>
-            <Typography color="textSecondary" variant="h5">Galería</Typography>
+            <Grid container className={classes.itemContainer} justify="center" alignItems="center">
+              <Grid item>
+                <Typography color="textSecondary" variant="h5"><a href="#gallery" className={classes.links}>Galería</a></Typography>
+              </Grid>
+            </Grid>
           </Grid>
       </Grid>
     );
@@ -48,5 +75,5 @@ class Menu extends Component {
 Menu.propTypes = {
   classes: PropTypes.object.isRequired
 }
-  
+
 export default withStyles(styles)(Menu);

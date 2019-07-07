@@ -7,8 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 
 const styles = theme => ({
   media: {
-    height: 500,
-    objectFit: "cover"
+    height: 400
   }
 });
 
@@ -30,7 +29,7 @@ class AutoPlay extends Component {
       <Slider {...settings}>
         <CardMedia
           className={classes.media}
-          image= "../images/IMG_9243.png" 
+          image= "../images/IMG_9243.png"
         />
         <CardMedia
           className={classes.media}
@@ -38,7 +37,7 @@ class AutoPlay extends Component {
         />
         <CardMedia
           className={classes.media}
-          image= "../images/IMG_9241.png" 
+          image= "../images/IMG_9241.png"
         />
       </Slider>
     );

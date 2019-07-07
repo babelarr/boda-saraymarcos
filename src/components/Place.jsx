@@ -36,7 +36,7 @@ class Place extends Component {
     const { classes } = this.props;
 
     return (
-      <Grid container>
+      <Grid id='place' container>
         <Grid item x={12} className={classes.placeBg}>
             <Typography variant="h4" color="textSecondary">
               Lugar del Enlace
