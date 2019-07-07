@@ -39,7 +39,7 @@ class Menu extends Component {
 
     return (
       <Grid container className={classes.menuContainer} direction="column" justify="center" alignItems="center">
-          <Grid item xs={6} alignItems='center' className={classes.wedding}>
+          <Grid item xs={6} className={classes.wedding}>
             <Grid container className={classes.itemContainer} justify="center" alignItems="center">
               <Grid item>
                 <Typography color="textSecondary" variant="h5"><a href="#wedding" className={classes.links}>Nos casamos</a></Typography>
