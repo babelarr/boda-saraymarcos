@@ -7,6 +7,8 @@ import Place from './Place';
 import Guests from './Guests';
 import Gallery from './Gallery';
 
+import Nodemailer from 'nodemailer';
+
 import { storage } from 'firebase/app';
 import { database } from 'firebase/app';
 
@@ -17,9 +19,6 @@ import { withStyles } from '@material-ui/core/styles';
 declare var $ : any;
 
 const styles = theme => ({
-  containerSliderMenu: {
-
-  }
 });
 
 class Main extends Component {
@@ -33,6 +32,8 @@ class Main extends Component {
     }
 
     this.handleUpload = this.handleUpload.bind(this);
+    this.handleOnChange = this.handleOnChange.bind(this);
+    this.handleOnFormSubmit = this.handleOnFormSubmit.bind(this);
   }
 
   componentWillMount () {
@@ -40,6 +41,46 @@ class Main extends Component {
       this.setState({
         pictures: this.state.pictures.concat(snapshot.val())
       });
+    });
+  }
+
+  handleOnChange (form) {
+    this.handleOnFormSubmit(form);
+  }
+
+  handleOnFormSubmit (form) {
+    console.log(form.body);
+
+    const transporter = Nodemailer.createTransport({
+      service: 'Gmail',
+      auth: {
+        user: 'saraymarcos.love@gmail.com',
+        pass: 'Albondis19'
+      }
+    });
+
+    const textEmail = `
+      Nombre: ${form.body.name}
+      Teléfono: ${form.body.phone}
+      Email: ${form.body.email}
+      URL de contacto: ${form.body.url}
+      Comentarios: ${form.body.comments}
+    `
+
+    const mailOptions = {
+      from: `${form.body.email}`,
+      to: 'saraymarcos.love@gmail.com',
+      subject: `${form.body.name}`,
+      replyTo: `${form.body.email}`,
+      text: textEmail
+    }
+
+    transporter.sendMail(mailOptions, (err, info) => {
+      if (err) {
+        console.log(`Error al enviar el formulario: ${err}`, err);
+      } else {
+        console.log('Email enviado! ' + info.response);
+      }
     });
   }
 
@@ -85,7 +126,7 @@ class Main extends Component {
   }
 
   render() {
-    const { classes } = this.props;
+    //const { classes } = this.props;
 
     $(document).ready(function () {
       var date = new Date(2019, 9, 12, 13)
@@ -93,16 +134,14 @@ class Main extends Component {
     });
 
     return (
-      <main className={classes.bgMain}>
-          <div className={classes.containerSliderMenu}>
-            <div id='defaultCountdown' />
-            <Slider/>
-            <Menu/>
-          </div>
-          <Wedding/>
-          <Place/>
-          <Guests/>
-          <Gallery loading={this.state.loading} handleUpload={this.handleUpload} uploadValue={this.state.uploadValue} pictures={this.state.pictures}/>
+      <main>
+        <div id='defaultCountdown' />
+        <Slider/>
+        <Menu/>
+        <Wedding/>
+        <Place/>
+        <Guests onChange={this.handleOnChange}/>
+        <Gallery loading={this.state.loading} handleUpload={this.handleUpload} uploadValue={this.state.uploadValue} pictures={this.state.pictures}/>
       </main>
     );
   }
