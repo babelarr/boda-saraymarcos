@@ -25,6 +25,7 @@ class Main extends Component {
     super(props);
 
     this.state = {
+      loading: false,
       pictures: [],
       uploadValue: 0
     }
@@ -51,21 +52,22 @@ class Main extends Component {
       // el estado del componente con el valor
       let percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
       this.setState({
-        uploadValue: percentage
+        uploadValue: percentage,
+        loading: true
       });
     }, error => {
       // Ocurre un error
       console.error(error.message);
     }, () => {
       this.setState({
-        uploadValue: 100
+        loading: false
       });
+
       // Subida completada
       // Obtenemos la URL del fichero almacenado en Firebase storage
       // Obtenemos la referencia a nuestra base de datos 'pictures'
       // Creamos un nuevo registro en ella
       // Guardamos la URL del enlace en la DB
-
       task.snapshot.ref.getDownloadURL().then(function(downloadURL) {
         const record = {
           key: uuid.v4(),
@@ -77,7 +79,6 @@ class Main extends Component {
         const newPicture = dbRef.push();
         newPicture.set(record);
       });
-
     });
   }
 
@@ -99,7 +100,7 @@ class Main extends Component {
           <Wedding/>
           <Place/>
           <Guests/>
-          <Gallery handleUpload={this.handleUpload} uploadValue={this.state.uploadValue} pictures={this.state.pictures}/>
+          <Gallery loading={this.state.loading} handleUpload={this.handleUpload} uploadValue={this.state.uploadValue} pictures={this.state.pictures}/>
       </main>
     );
   }

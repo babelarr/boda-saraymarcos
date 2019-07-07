@@ -3,47 +3,72 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import CardMedia from '@material-ui/core/CardMedia';
 import FileUpload from './FileUpload';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 const styles = theme => ({
   galleryContainer: {
     backgroundColor: theme.palette.primary.dark,
     padding: theme.spacing.unit * 5
-  }
+  },
+  media: {
+    height: 200
+  },
+  buttonContainer:{
+    margin: theme.spacing.unit * 3
+  },
+  linearColorPrimary: {
+    backgroundColor: '#b2dfdb',
+  },
+  linearBarColorPrimary: {
+    backgroundColor: '#d7b9bc',
+  },
 });
 
 class Gallery extends Component {
   render() {
-    const { classes } = this.props;
+    const { classes, loading, handleUpload, uploadValue, pictures } = this.props;
 
     return (
-      <Grid container justify="center" className={classes.galleryContainer}>
-          <Grid item>
-            <Typography variant="h4" color="textSecondary">Galería de fotos</Typography>
+      <Grid container direction="column" justify="center" alignItems="center" className={classes.galleryContainer}>
+          <Grid item xs={12}>
+            <Typography variant="h4" color="textSecondary" align="center">Galería de fotos</Typography>
           </Grid>
-          <Grid item>
+          <Grid item xs={12}>
             <Typography color="textSecondary" align="center">
               En este espacio podrás subir el dia de la boda las fotos que vayas haciendo y verás las del resto de los invitados.
             </Typography>
-          </Grid>
-          <Grid item>
-            <FileUpload handleUpload={this.props.handleUpload} uploadValue={this.props.uploadValue} />
-          </Grid>
-          {
-              this.props.pictures.map(picture => (
-                <Grid item key={picture.key}>
-                    <figure>
-                      <img
-                        src={picture.image}
-                        data-caption={`Imagen compartida por ${picture.displayName}`}
-                        alt='Ampliar/Reducir imagen' />
-                    </figure>
-                    <div>
-                      {picture.displayName}
-                    </div>
-                </Grid>
-              )).reverse()
+            {
+              loading &&
+              <LinearProgress variant="determinate" value={uploadValue}
+                classes={
+                  {
+                    colorPrimary: classes.linearColorPrimary,
+                    barColorPrimary: classes.linearBarColorPrimary,
+                  }
+                }
+              />
+
             }
+          </Grid>
+          <Grid item xs={12} className={classes.buttonContainer}>
+            <FileUpload handleUpload={handleUpload} uploadValue={uploadValue} />
+          </Grid>
+          <Grid container spacing={16}>
+            {
+                pictures.map(picture => (
+                  <Grid item xs={6} sm={4} md={3} key={picture.key}>
+                    <CardMedia
+                      className={classes.media}
+                      image= {picture.image}
+                      title={picture.displayName}
+                    />
+                  </Grid>
+              
+                )).reverse()
+              }
+            </Grid>
       </Grid>
     );
   }
