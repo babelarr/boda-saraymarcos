@@ -7,7 +7,9 @@ import Place from './Place';
 import Guests from './Guests';
 import Gallery from './Gallery';
 
-import firebase from 'firebase';
+import { storage } from 'firebase/app';
+import { database } from 'firebase/app';
+
 import uuid from 'uuid';
 
 import { withStyles } from '@material-ui/core/styles';
@@ -34,7 +36,7 @@ class Main extends Component {
   }
 
   componentWillMount () {
-    firebase.database().ref('pictures').on('child_added', snapshot => {
+    database().ref('pictures').on('child_added', snapshot => {
       this.setState({
         pictures: this.state.pictures.concat(snapshot.val())
       });
@@ -43,7 +45,7 @@ class Main extends Component {
 
   handleUpload (event) {
     const file = event.target.files[0];
-    const storageRef = firebase.storage().ref(`fotos/${file.name}`);
+    const storageRef = storage().ref(`fotos/${file.name}`);
     const task = storageRef.put(file);
 
     // Listener que se ocupa del estado de la carga del fichero
@@ -75,7 +77,7 @@ class Main extends Component {
           image: downloadURL
         };
 
-        const dbRef = firebase.database().ref('pictures');
+        const dbRef = database().ref('pictures');
         const newPicture = dbRef.push();
         newPicture.set(record);
       });
