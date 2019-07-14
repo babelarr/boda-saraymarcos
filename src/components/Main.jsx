@@ -7,7 +7,10 @@ import Place from './Place';
 import Guests from './Guests';
 import Gallery from './Gallery';
 
-import Nodemailer from 'nodemailer';
+import Snackbar from '@material-ui/core/Snackbar';
+import Fade from '@material-ui/core/Fade';
+
+import fetch from 'isomorphic-fetch';
 
 import { storage } from 'firebase/app';
 import { database } from 'firebase/app';
@@ -21,6 +24,8 @@ declare var $ : any;
 const styles = theme => ({
 });
 
+const baseURL = 'https://api-rest-aksofakama.herokuapp.com/api'
+
 class Main extends Component {
   constructor(props) {
     super(props);
@@ -28,12 +33,15 @@ class Main extends Component {
     this.state = {
       loading: false,
       pictures: [],
-      uploadValue: 0
+      uploadValue: 0,
+      resetForm: false,
+      openSuccess: false,
+      openError: false
     }
 
     this.handleUpload = this.handleUpload.bind(this);
     this.handleOnChange = this.handleOnChange.bind(this);
-    this.handleOnFormSubmit = this.handleOnFormSubmit.bind(this);
+    this.handleSendForm = this.handleSendForm.bind(this);
   }
 
   componentWillMount () {
@@ -45,43 +53,33 @@ class Main extends Component {
   }
 
   handleOnChange (form) {
-    this.handleOnFormSubmit(form);
+    this.handleSendForm(form);
   }
 
-  handleOnFormSubmit (form) {
-    console.log(form.body);
+  async handleSendForm (form) {
+    const response = await fetch(`${baseURL}/guests`, {
+      method: 'POST',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      }),
+      body: JSON.stringify(form)
+    })
+    const data = await response;
 
-    const transporter = Nodemailer.createTransport({
-      service: 'Gmail',
-      auth: {
-        user: 'saraymarcos.love@gmail.com',
-        pass: 'Albondis19'
-      }
-    });
-
-    const textEmail = `
-      Nombre: ${form.body.name}
-      Teléfono: ${form.body.phone}
-      Email: ${form.body.email}
-      URL de contacto: ${form.body.url}
-      Comentarios: ${form.body.comments}
-    `
-
-    const mailOptions = {
-      from: `${form.body.email}`,
-      to: 'saraymarcos.love@gmail.com',
-      subject: `${form.body.name}`,
-      replyTo: `${form.body.email}`,
-      text: textEmail
+    if (response.ok) {
+      this.setState({
+        resetForm: true,
+        openSuccess: true
+      })
+    } else {
+      this.setState({
+        resetForm: false,
+        openError: true
+      })
     }
 
-    transporter.sendMail(mailOptions, (err, info) => {
-      if (err) {
-        console.log(`Error al enviar el formulario: ${err}`, err);
-      } else {
-        console.log('Email enviado! ' + info.response);
-      }
-    });
+    return data;
   }
 
   handleUpload (event) {
@@ -125,6 +123,14 @@ class Main extends Component {
     });
   }
 
+  handleCloseSuccess = () => {
+    this.setState({ openSuccess: false });
+  };
+
+  handleCloseError = () => {
+    this.setState({ openError: false });
+  };
+
   render() {
     //const { classes } = this.props;
 
@@ -135,12 +141,30 @@ class Main extends Component {
 
     return (
       <main>
+        <Snackbar
+          open={this.state.openSuccess}
+          onClose={this.handleCloseSuccess}
+          TransitionComponent={Fade}
+          ContentProps={{
+            'aria-describedby': 'message-id',
+          }}
+          message={<span id="message-id">Mensaje enviado correctamente!</span>}
+        />
+        <Snackbar
+          open={this.state.openError}
+          onClose={this.handleCloseError}
+          TransitionComponent={Fade}
+          ContentProps={{
+            'aria-describedby': 'message-id',
+          }}
+          message={<span id="message-id">Se ha producido un error. Inténtalo más tarde.</span>}
+        />
         <div id='defaultCountdown' />
         <Slider/>
         <Menu/>
         <Wedding/>
         <Place/>
-        <Guests onChange={this.handleOnChange}/>
+        <Guests onChange={this.handleOnChange} resetForm={this.state.resetForm}/>
         <Gallery loading={this.state.loading} handleUpload={this.handleUpload} uploadValue={this.state.uploadValue} pictures={this.state.pictures}/>
       </main>
     );

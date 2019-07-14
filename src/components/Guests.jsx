@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Recaptcha from 'react-google-recaptcha';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
@@ -27,10 +26,19 @@ const styles = theme => ({
 });
 
 class Guests extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.resetForm) {
+        document.getElementById('contactForm').reset();
+    }
+  }
+
   render() {
     const { classes, onChange } = this.props;
 
-    let captcha;
     let form;
 
     return (
@@ -54,11 +62,10 @@ class Guests extends Component {
                 name: event.target.name.value,
                 phone: event.target.phone.value,
                 email: event.target.email.value,
-                url: window.location.href,
                 comments: event.target.comments.value
               }
 
-              captcha.execute();
+              onChange(form);
             }}>
             <TextField name='name'
               required
@@ -69,7 +76,7 @@ class Guests extends Component {
             />
             <TextField name='phone'
               fullWidth
-              label='Tu Teléfono'
+              label='Tu Teléfono (opcional)'
               margin='normal'
             />
             <TextField name='email'
@@ -79,6 +86,7 @@ class Guests extends Component {
               label='Tu Email'
               margin='normal'
             />
+
             <TextField name='comments'
               required
               fullWidth
@@ -86,12 +94,6 @@ class Guests extends Component {
               rows='4'
               label='Tu Mensaje'
               margin='normal'
-            />
-            <Recaptcha
-              ref={(el) => { captcha = el }}
-              size='invisible'
-              sitekey='6LfZZnAUAAAAAMSuhCLBbtihyBsey61Tues1lD7K'
-              onChange={() => onChange(form)}
             />
             <Button variant='contained' color='primary' type='submit'
               className={classes.button}>
