@@ -28,6 +28,9 @@ const styles = theme => ({
   },
   link: {
     textDecoration: "none"
+  },
+  btnMaps: {
+    marginTop: theme.spacing.unit * 3
   }
 });
 
@@ -60,7 +63,7 @@ class Place extends Component {
                 Te facilitamos la ubicación y cómo llegar, en el siguiente enlace.
               </Typography>
               <a href="https://www.google.com/maps/place/Finca+El+Pendolero/@40.591404,-3.8868847,17z/data=!3m1!4b1!4m5!3m4!1s0xd41781c686d4479:0xa3e5d1c54d37165a!8m2!3d40.591404!4d-3.884696" target="_blank" rel="noopener noreferrer" className={classes.link}>
-                <Button variant="contained" color="primary">Google Maps</Button>
+                <Button className={classes.btnMaps} variant="contained" color="primary">Google Maps</Button>
               </a>
             </Grid>
           </Grid>

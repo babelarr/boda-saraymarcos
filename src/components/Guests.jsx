@@ -8,7 +8,7 @@ import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
   guestsContainer:{
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.secondary.dark,
     padding: theme.spacing.unit * 5
   },
   formContainer:{
@@ -26,7 +26,7 @@ const styles = theme => ({
 });
 
 class Guests extends Component {
-  
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.resetForm) {
         document.getElementById('contactForm').reset();
@@ -46,7 +46,7 @@ class Guests extends Component {
 
         <Grid item xs={12}>
           <Typography color='textSecondary' align='center'>
-            Aqui va el texto de la boda
+            Para que la organización de la boda sea perfecta, os pedimos por favor que rellenéis el siguiente formulario para confirmar vuestra asistencia.Indícanos en Comentarios quién te acompañará a la boda, si tienes algún tipo de alergia alimenticia, cualquier cosa que necesites...
           </Typography>
         </Grid>
 
@@ -99,12 +99,12 @@ class Guests extends Component {
           </form>
         </Grid>
 
-        <Grid container justify='center' className={classes.countContainer}>
+        <Grid container justify='center' className={classes.countContainer} spacing={16}>
           <Grid item>
-            <Typography color='textSecondary'>Aqui va el texto de la boda</Typography>
+            <Typography color='textSecondary' align='center'>A continuación te ofrecemos el número de cuenta asociado al enlace por si quieres colaborar con nuestro viaje y demás preparativos.Pero recuerda que tu presencia es nuestro mejor regalo.</Typography>
           </Grid>
           <Grid item>
-            <Typography color='textSecondary'>Número de cuenta ES98 1465 0100 91 1715510099</Typography>
+            <Typography color='textSecondary' variant='title'>ES98 1465 0100 91 1715510099</Typography>
           </Grid>
         </Grid>
       </Grid>

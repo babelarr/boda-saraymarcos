@@ -13,19 +13,19 @@ const styles = theme => ({
   },
   wedding: {
     width: '100%',
-    backgroundColor: theme.palette.primary.main
+    backgroundColor: theme.palette.secondary.main
   },
   place: {
     width: '100%',
-    backgroundColor: theme.palette.primary.dark
+    backgroundColor: theme.palette.primary.main
   },
   guests: {
     width: '100%',
-    backgroundColor: theme.palette.secondary.main
+    backgroundColor: theme.palette.secondary.dark
   },
   gallery: {
     width: '100%',
-    backgroundColor: theme.palette.secondary.dark
+    backgroundColor: theme.palette.primary.dark
   },
   links: {
     color: "unset",
@@ -46,17 +46,17 @@ class Menu extends Component {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={6} className={classes.place}>
-            <Grid container className={classes.itemContainer} justify="center" alignItems="center">
-              <Grid item>
-                <Typography color="textSecondary" variant="h5"><a href="#place" className={classes.links}>El enlace</a></Typography>
-              </Grid>
-            </Grid>
-          </Grid>
           <Grid item xs={6} className={classes.guests}>
             <Grid container className={classes.itemContainer} justify="center" alignItems="center">
               <Grid item>
                 <Typography color="textSecondary" variant="h5"><a href="#guests" className={classes.links}>Invitados</a></Typography>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item xs={6} className={classes.place}>
+            <Grid container className={classes.itemContainer} justify="center" alignItems="center">
+              <Grid item>
+                <Typography color="textSecondary" variant="h5"><a href="#place" className={classes.links}>El enlace</a></Typography>
               </Grid>
             </Grid>
           </Grid>

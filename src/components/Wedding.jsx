@@ -17,7 +17,7 @@ class Wedding extends Component {
     return (
       <Grid id='wedding' container direction="column" justify="center" className={classes.weddingContainer}>
         <Grid item>
-          <Typography variant="h4" color="primary" align="center">Nos casamos</Typography>
+          <Typography variant="h4" color="secondary" align="center">Nos casamos</Typography>
         </Grid>
         <Grid item>
           <Typography align="center">
