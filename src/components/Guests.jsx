@@ -104,7 +104,7 @@ class Guests extends Component {
             <Typography color='textSecondary' align='center'>A continuación te ofrecemos el número de cuenta asociado al enlace por si quieres colaborar con nuestro viaje y demás preparativos.Pero recuerda que tu presencia es nuestro mejor regalo.</Typography>
           </Grid>
           <Grid item>
-            <Typography color='textSecondary' variant='title'>ES98 1465 0100 91 1715510099</Typography>
+            <Typography color='textSecondary' variant='title' align='center'>ES98 1465 0100 91 1715510099</Typography>
           </Grid>
         </Grid>
       </Grid>
