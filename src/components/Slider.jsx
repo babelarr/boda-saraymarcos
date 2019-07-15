@@ -30,15 +30,15 @@ class AutoPlay extends Component {
       <Slider {...settings}>
         <CardMedia
           className={classes.media}
-          image= "../images/IMG_9243.png"
+          image= "../images/img_slider_01.png"
         />
         <CardMedia
           className={classes.media}
-          image= "../images/IMG_9242.png"
+          image= "../images/img_slider_02.png"
         />
         <CardMedia
           className={classes.media}
-          image= "../images/IMG_9241.png"
+          image= "../images/img_slider_03.png"
         />
       </Slider>
     );

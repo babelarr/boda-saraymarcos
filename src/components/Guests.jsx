@@ -26,10 +26,7 @@ const styles = theme => ({
 });
 
 class Guests extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+  
   componentWillReceiveProps(nextProps) {
     if (nextProps.resetForm) {
         document.getElementById('contactForm').reset();

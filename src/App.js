@@ -25,7 +25,7 @@ const themeApp = createMuiTheme({
       dark: '#d17878',
       contrastText: '#fff',
     },
-    text:{ 
+    text:{
       primary: '#999',
       secondary: '#fff',
       default: '#fff'

@@ -38,7 +38,7 @@ class Place extends Component {
     return (
       <Grid id='place' container>
         <Grid item x={12} className={classes.placeBg}>
-            <Typography variant="h4" color="textSecondary">
+            <Typography variant="h4" color="textSecondary" align="center">
               Lugar del Enlace
             </Typography>
             <Typography color="textSecondary" align="center">
