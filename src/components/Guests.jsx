@@ -119,11 +119,11 @@ class Guests extends Component {
                 let nameCompanion = '';
                 let nameChildren = '';
 
-                if (this.state.valueCompanion === true) {
+                if (this.state.valueCompanion === 'si') {
                   nameCompanion = event.target.nameCompanion.value
                 }
 
-                if (this.state.valueChildren === true) {
+                if (this.state.valueChildren === 'si') {
                   nameChildren = event.target.nameChildren.value
                 }
 
