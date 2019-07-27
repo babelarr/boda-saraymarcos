@@ -64,7 +64,7 @@ class Header extends Component {
               onClose={this.handleClose}
             >
               <MenuItem onClick={this.handleClose}><a href="#wedding" className={classes.links}>Nos casamos</a></MenuItem>
-              <MenuItem onClick={this.handleClose}><a href="#place" className={classes.links}>Lugar del enlace</a></MenuItem>
+              <MenuItem onClick={this.handleClose}><a href="#place" className={classes.links}>¿Dónde vamos?</a></MenuItem>
               <MenuItem onClick={this.handleClose}><a href="#guests" className={classes.links}>Los invitados</a></MenuItem>
               <MenuItem onClick={this.handleClose}><a href="#gallery" className={classes.links}>Galería</a></MenuItem>
             </Menu>

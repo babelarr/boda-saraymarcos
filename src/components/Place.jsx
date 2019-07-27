@@ -42,10 +42,13 @@ class Place extends Component {
       <Grid id='place' container>
         <Grid item x={12} className={classes.placeBg}>
             <Typography variant="h4" color="textSecondary" align="center">
-              Lugar del Enlace
+              ¿Dónde vamos?
             </Typography>
             <Typography color="textSecondary" align="center">
-              El enlace y posterior celebración tendrá lugar en la finca madrileña El Pendolero a las 13:30
+              El lugar del enlace y posterior celebración tendrá lugar en la finca madrileña El Pendolero.
+            </Typography>
+            <Typography color="textSecondary" align="center">
+              Os esperamos a las 13.00 horas
             </Typography>
         </Grid>
         <Grid item x={12} className={classes.containerLocation}>

@@ -37,7 +37,7 @@ class Gallery extends Component {
           </Grid>
           <Grid item xs={12}>
             <Typography color="textSecondary" align="center">
-              En este espacio podrás subir el dia de la boda las fotos que vayas haciendo y verás las del resto de los invitados.
+              ¡¡PA-TA-TA!! Nos encantan las fotos y necesitamos que nos ayudes a inmortalizar todos los momentos de nuestro día. Haz todas las que quieras y pulsa al botón "SUBIR IMAGEN"
             </Typography>
             {
               loading &&
