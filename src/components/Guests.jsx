@@ -179,7 +179,6 @@ class Guests extends Component {
                     this.state.valueCompanion === 'si' &&
                     <TextField name='nameCompanion'
                       required
-                      name="nameCompanion"
                       fullWidth
                       type='search'
                       label='Nombre acompañante/s'
@@ -202,9 +201,8 @@ class Guests extends Component {
 
                   {
                     this.state.valueChildren === 'si' &&
-                    <TextField name='childName'
+                    <TextField name='nameChildren'
                       required
-                      name="nameChildren"
                       fullWidth
                       type='search'
                       label='Nombre niño/s'
