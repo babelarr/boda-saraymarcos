@@ -49,7 +49,7 @@ class Menu extends Component {
                <Icon style={{ fontSize: 50 }} className={classes.icon}>favorite</Icon>
               </Grid>
               <Grid item>
-                <Typography color="textSecondary" variant="h5"><a href="#wedding" className={classes.links}>Nos casamos</a></Typography>
+                <Typography color="textSecondary" variant="h5" align='center'><a href="#wedding" className={classes.links}>Nos casamos</a></Typography>
               </Grid>
             </Grid>
           </Grid>
@@ -59,7 +59,7 @@ class Menu extends Component {
                <Icon style={{ fontSize: 50 }} className={classes.icon}>group</Icon>
               </Grid>
               <Grid item>
-                <Typography color="textSecondary" variant="h5"><a href="#guests" className={classes.links}>Invitados</a></Typography>
+                <Typography color="textSecondary" variant="h5" align='center'><a href="#guests" className={classes.links}>Invitados</a></Typography>
               </Grid>
             </Grid>
           </Grid>
@@ -69,7 +69,7 @@ class Menu extends Component {
                <Icon style={{ fontSize: 50 }} className={classes.icon}>explore</Icon>
               </Grid>
               <Grid item>
-                <Typography color="textSecondary" variant="h5"><a href="#place" className={classes.links}>¿Dónde vamos?</a></Typography>
+                <Typography color="textSecondary" variant="h5" align='center'><a href="#place" className={classes.links}>¿Dónde vamos?</a></Typography>
               </Grid>
             </Grid>
           </Grid>
@@ -79,7 +79,7 @@ class Menu extends Component {
                <Icon style={{ fontSize: 50 }} className={classes.icon}>add_a_photo</Icon>
               </Grid>
               <Grid item>
-                <Typography color="textSecondary" variant="h5"><a href="#gallery" className={classes.links}>Galería de fotos</a></Typography>
+                <Typography color="textSecondary" variant="h5" align='center'><a href="#gallery" className={classes.links}>Galería de fotos</a></Typography>
               </Grid>
             </Grid>
           </Grid>
