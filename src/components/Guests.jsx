@@ -234,7 +234,7 @@ class Guests extends Component {
             <Typography color='textSecondary' variant='title' align='center'>LISTA DE BODA SARA Y MARCOS</Typography>
           </Grid>
           <Grid item>
-            <Typography color='textSecondary' align='center'>Estamos construyendo nuestro nido... ¿Nos ayudas con una ramita?.</Typography>
+            <Typography color='textSecondary' align='center'>Estamos construyendo nuestro nido... ¿Nos ayudas con una ramita?</Typography>
           </Grid>
           <Grid item>
             <Typography color='textSecondary' variant='title' align='center'>ES98 1465 0100 91 1715510099</Typography>
