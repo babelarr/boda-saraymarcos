@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { withStyles } from '@material-ui/core/styles';
 import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
+import Fab from '@material-ui/core/Fab';
+import Icon from '@material-ui/core/Icon';
 
 const themeApp = createMuiTheme({
   palette: {
@@ -41,6 +44,16 @@ const themeApp = createMuiTheme({
   },
 });
 
+const styles = theme => ({
+  fab:{
+    position: 'fixed',
+    bottom: 20,
+    right: 30,
+    zIndex: 99,
+  }
+});
+
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -49,7 +62,15 @@ class App extends Component {
     };
   }
 
+  topFunction () {
+    document.body.scrollTop = 0 // Para Chrome, Safari y Opera
+    document.documentElement.scrollTop = 0 // Para IE y Firefox
+  }
+
   render() {
+
+    const { classes } = this.props;
+
     return (
       <React.Fragment>
         <CssBaseline />
@@ -57,10 +78,13 @@ class App extends Component {
             <Header />
             <Main />
             <Footer />
+            <Fab color="secondary" aria-label="Edit" className={classes.fab} onClick={this.topFunction} id='myBtn'>
+              <Icon>arrow_upward</Icon>
+            </Fab>
         </MuiThemeProvider>
       </React.Fragment>
     );
   }
 }
 
-export default App;
+export default withStyles(styles)(App);

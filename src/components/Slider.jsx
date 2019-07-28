@@ -34,11 +34,23 @@ class AutoPlay extends Component {
         />
         <CardMedia
           className={classes.media}
-          image= "../images/img_slider_02.png"
+          image= "../images/img_slider02.JPG"
         />
         <CardMedia
           className={classes.media}
           image= "../images/img_slider_03.png"
+        />
+        <CardMedia
+          className={classes.media}
+          image= "../images/img_slider04.JPG"
+        />
+        <CardMedia
+          className={classes.media}
+          image= "../images/img_slider05.JPG"
+        />
+        <CardMedia
+          className={classes.media}
+          image= "../images/img_slider06.JPG"
         />
       </Slider>
     );

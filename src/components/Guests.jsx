@@ -108,7 +108,7 @@ class Guests extends Component {
 
         <Grid item xs={12}>
           <Typography color='textSecondary' align='center'>
-            Para que la organización de la boda sea perfecta, os pedimos por favor que rellenéis el siguiente formulario para confirmar vuestra asistencia.Indícanos en Comentarios quién te acompañará a la boda, si tienes algún tipo de alergia alimenticia, cualquier cosa que necesites...
+            Para que la organización de la boda sea perfecta, os pedimos por favor que rellenéis el siguiente formulario para confirmar vuestra asistencia. Indícanos en Comentarios si tienes algún tipo de alergia alimenticia o cualquier cosa que necesites hacernos saber...
           </Typography>
         </Grid>
           <Grid item xs={12} >
@@ -116,15 +116,15 @@ class Guests extends Component {
               onSubmit={(event) => {
                 event.preventDefault();
 
-                let nameCompanion = '';
-                let nameChildren = '';
+                let _nameCompanion = '';
+                let _nameChildren = '';
 
-                if (this.state.valueCompanion === 'si') {
-                  nameCompanion = event.target.nameCompanion.value
+                if (event.target.companion.value === 'si') {
+                  _nameCompanion = event.target.nameCompanion.value
                 }
 
-                if (this.state.valueChildren === 'si') {
-                  nameChildren = event.target.nameChildren.value
+                if (event.target.children.value === 'si') {
+                  _nameChildren = event.target.nameChildren.value
                 }
 
                 form = {
@@ -134,8 +134,8 @@ class Guests extends Component {
                   comments: event.target.comments.value,
                   companion: event.target.companion.value,
                   children: event.target.children.value,
-                  nameCompanion: nameCompanion,
-                  nameChildren: nameChildren
+                  nameCompanion: _nameCompanion,
+                  nameChildren: _nameChildren
                 }
 
                 onChange(form);
@@ -229,7 +229,7 @@ class Guests extends Component {
         </Grid>
 
 
-        <Grid container justify='center' className={classes.countContainer} spacing={16}>
+        <Grid container justify='center' className={classes.countContainer} spacing={16} direction='column'>
           <Grid item>
             <Typography color='textSecondary' variant='title' align='center'>LISTA DE BODA SARA Y MARCOS</Typography>
           </Grid>
@@ -238,6 +238,9 @@ class Guests extends Component {
           </Grid>
           <Grid item>
             <Typography color='textSecondary' variant='title' align='center'>ES98 1465 0100 91 1715510099</Typography>
+          </Grid>
+          <Grid item>
+            <Typography color='textSecondary' align='center'>¡¡Muchas gracias!!</Typography>
           </Grid>
         </Grid>
       </Grid>
