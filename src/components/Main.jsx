@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Slider from './Slider';
 import Menu from './Menu';
 import Wedding from './Wedding';
+import Videos from './Videos';
 import Place from './Place';
 import Guests from './Guests';
 import Gallery from './Gallery';
@@ -160,12 +161,9 @@ class Main extends Component {
           message={<span id="message-id">Se ha producido un error. Inténtalo más tarde.</span>}
         />
         <div id='defaultCountdown' />
-        <div style={{position: 'relative', height: '800px'}}>
-          <Slider/>
-          <div style={{width: '100%', position: 'absolute', top: '400px'}}>
-            <Menu/>
-          </div>
-        </div>
+        <Slider/>
+        <Videos/>
+        <Menu/>
         <Wedding/>
         <Place/>
         <Guests onChange={this.handleOnChange} resetForm={this.state.resetForm}/>
