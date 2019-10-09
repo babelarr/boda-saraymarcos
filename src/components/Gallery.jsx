@@ -6,8 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import CardMedia from '@material-ui/core/CardMedia';
 import FileUpload from './FileUpload';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import Fab from '@material-ui/core/Fab';
-import Icon from '@material-ui/core/Icon';
 
 const styles = theme => ({
   galleryContainer: {
@@ -72,7 +70,7 @@ class Gallery extends Component {
 
   openFunction (e) {
     let src = e.target.style.backgroundImage;
-    src = src.replace('url(','').replace(')','').replace(/\"/gi, "");
+    src = src.replace('url(','').replace(')','').replace(/"/gi, "");
     this.setState({
       open: true,
       srcImage: src

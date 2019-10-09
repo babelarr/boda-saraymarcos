@@ -37,7 +37,9 @@ class Main extends Component {
       uploadValue: 0,
       resetForm: false,
       openSuccess: false,
-      openError: false
+      openError: false,
+      inTimeWedding: true,
+      inTimeVideos: false
     }
 
     this.handleUpload = this.handleUpload.bind(this);
@@ -51,6 +53,22 @@ class Main extends Component {
         pictures: this.state.pictures.concat(snapshot.val())
       });
     });
+
+    const today = new Date();
+    const dateWedding = new Date(2019, 9, 12, 13);
+    const dateVideos = new Date(2019, 9, 13, 9);
+
+    if (today > dateWedding) {
+      this.setState({
+          inTimeWedding: false
+      });
+    }
+
+    if (today > dateVideos) {
+      this.setState({
+          inTimeVideos: true
+      });
+    }
   }
 
   handleOnChange (form) {
@@ -160,9 +178,34 @@ class Main extends Component {
           }}
           message={<span id="message-id">Se ha producido un error. Inténtalo más tarde.</span>}
         />
-        <div id='defaultCountdown' />
+
+        {
+          this.state.inTimeWedding ?
+          <div id='defaultCountdown' />
+          :
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontFamily: '"Josefin Sans", "sans-serif"',
+            fontSize: '1.25rem',
+            backgroundColor: '#BACDB7',
+            color: 'white',
+            height: '64px',
+            padding: '0.8rem',
+            boxShadow: '0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2)'
+          }}>
+            💖💖💖 RECIÉN CASADOS 💖💖💖
+          </div>
+        }
+
         <Slider/>
-        <Videos/>
+
+        {
+          this.state.inTimeVideos &&
+          <Videos/>
+        }
+
         <Menu/>
         <Wedding/>
         <Place/>

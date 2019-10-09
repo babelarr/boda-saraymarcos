@@ -231,13 +231,13 @@ class Guests extends Component {
 
         <Grid container justify='center' className={classes.countContainer} spacing={16} direction='column'>
           <Grid item>
-            <Typography color='textSecondary' variant='title' align='center'>LISTA DE BODA SARA Y MARCOS</Typography>
+            <Typography color='textSecondary' variant='h6' align='center'>LISTA DE BODA SARA Y MARCOS</Typography>
           </Grid>
           <Grid item>
             <Typography color='textSecondary' align='center'>Estamos construyendo nuestro nido... ¿Nos ayudas con una ramita?</Typography>
           </Grid>
           <Grid item>
-            <Typography color='textSecondary' variant='title' align='center'>ES98 1465 0100 91 1715510099</Typography>
+            <Typography color='textSecondary' variant='h6' align='center'>ES98 1465 0100 91 1715510099</Typography>
           </Grid>
           <Grid item>
             <Typography color='textSecondary' align='center'>¡¡Muchas gracias!!</Typography>
