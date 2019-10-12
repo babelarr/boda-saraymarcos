@@ -180,7 +180,7 @@ class Videos extends Component {
                   required
                   fullWidth
                   type='search'
-                  label='Introduce tu código en minúsculas'
+                  label='Código en minúsculas'
                   margin='normal'
                   value={code}
                   onChange={this.changeValue}
