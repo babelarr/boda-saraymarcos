@@ -61,7 +61,7 @@ const codeGuests = [
   {code:'chocolate', url:'https://youtu.be/gCXydUvzCaA'},
   {code:'amor', url:'https://youtu.be/HvVCy-Jmf6c'},
   {code:'manzanares', url:'https://youtu.be/2W3Yq7z_HRg'},
-  {code:'mancuerna', url:'https://youtu.be/K43FpV2hZXw'},
+  {code:'mancuerna', url:'https://youtu.be/ThtnTiBdK4I'},
   {code:'patorra', url:'https://youtu.be/_VpdLs8m_So'},
   {code:'barco', url:'https://youtu.be/ivvsy-KztFc'},
   {code:'amigos', url:'https://youtu.be/Z5pu2UpHVf8'},
@@ -109,7 +109,12 @@ const codeGuests = [
   {code:'horche', url:'https://youtu.be/IfitggV2CAE'},
   {code:'fisica', url:'https://youtu.be/_WS6txQ86nk'},
   {code:'achicain', url:'https://youtu.be/DEFnrOMiI4g'},
-  {code:'sabio', url:'https://youtu.be/DEFnrOMiI4g'}
+  {code:'sabio', url:'https://youtu.be/IBL29Ve6dLY'},
+  {code:'villalola', url:'https://youtu.be/FjU86R3Ckrc'},
+  {code:'anoyu', url:'https://youtu.be/gH7EDGi5Fmk'},
+  {code:'tungstenoymodjo', url:'https://youtu.be/M5kcjOcdV60'},
+  {code:'familia', url:'https://youtu.be/8_dFt3EiOjU'},
+  {code:'gilipichis', url:'https://youtu.be/6NcMahUuAHE'}
 ];
 
 class Videos extends Component {
@@ -175,7 +180,7 @@ class Videos extends Component {
                   required
                   fullWidth
                   type='search'
-                  label='Tu código'
+                  label='Introduce tu código en minúsculas'
                   margin='normal'
                   value={code}
                   onChange={this.changeValue}
